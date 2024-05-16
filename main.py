@@ -2,7 +2,7 @@ import sys
 from parser.JSONparser import JSONparser
 
 def main():
-    input_file_path = "test_json/test1.1.json"
+    input_file_path = "test_json/test1.1_edit.json"
 
     try:
         # Parse the JSON data from the input file

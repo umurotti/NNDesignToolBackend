@@ -22,9 +22,9 @@
 	"nodes": [
 		{
 			"name": "zExgHveYtj7J",
-			"nodecategory": "INOUT",
+			"nodecategory": "In",
 			"nodetypeindex": 0,
-			"nodetypename": "IN",
+			"node_type_name": "In",
 			"offset_x": 162.281845092773,
 			"offset_y": 407.623657226562,
 			"size_x": 63.9548797607422,
@@ -52,9 +52,9 @@
 		},
 		{
 			"name": "BpzLkZZFxBUv",
-			"nodecategory": "INOUT",
+			"nodecategory": "Out",
 			"nodetypeindex": 0,
-			"nodetypename": "OUT",
+			"node_type_name": "Out",
 			"offset_x": 1137.1279296875,
 			"offset_y": 410.417785644531,
 			"size_x": 63.9548721313477,
@@ -84,7 +84,7 @@
 			"name": "oi2FPQUZKTVz",
 			"nodecategory": "nnnode",
 			"nodetypeindex": 6,
-			"nodetypename": "ReLU",
+			"node_type_name": "ReLU",
 			"offset_x": 776.993713378906,
 			"offset_y": 397.999359130859,
 			"size_x": 141.570007324219,
@@ -101,32 +101,21 @@
 			}
 		},
 		{
-			"name": "fMm4nLnKm5g4",
-			"nodecategory": "nnnode",
-			"nodetypeindex": 1,
-			"nodetypename": "Conv2d",
-			"offset_x": 429.277893066406,
-			"offset_y": 385.580963134766,
-			"size_x": 165.78596496582,
-			"size_y": 305.493225097656,
-			"zdata": {
-				"nodeactionparams": {
-
-				},
-				"nodeparams": {
-					"CustomName": "my_conv",
-					"bias": true,
-					"bias optname": "true",
-					"dilation": 1,
-					"groups": 1,
-					"in_channels": 2,
-					"kernel_size": 2,
-					"out_channels": 2,
-					"padding": 0,
-					"padding_mode": 0,
-					"padding_mode optname": "zeros",
-					"stride": 1
-				}
+			"id": "fMm4nLnKm5g4",
+			"node_category": "PyTorchNodes.Convolutions",
+			"node_type_index": 1,
+			"node_type_name": "Conv2d",
+			"name": "my_conv",
+			"node_params": {
+				"bias": true,
+				"dilation": 1,
+				"groups": 1,
+				"in_channels": 2,
+				"kernel_size": 2,
+				"out_channels": 2,
+				"padding": 0,
+				"padding_mode": "zeros",
+				"stride": 1
 			}
 		}
 	]
