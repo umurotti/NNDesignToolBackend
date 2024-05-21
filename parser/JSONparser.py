@@ -2,7 +2,7 @@ from model.Model import Model
 from model.Node import Node
 from model.Connection import Connection
 
-from parser.utils import create_node_from_module_with_JSON
+from parser.utils import create_node_from_module_with_JSON, graphify
 
 import json
 
@@ -19,29 +19,39 @@ class JSONparser:
 
     def parse(self):
         for JSON_node in self.JSON_nodes:
-            try:
-                node_type_name = JSON_node['node_type_name']
-            
-                #DEBUG
-                if node_type_name == "Conv2d":
-                    node_category = JSON_node['node_category']
-                    node_params = JSON_node
-                    self.nodes.append(self.instantiate_node(node_category, node_type_name, node_params))
-            finally:
-                pass
+            self.nodes.append(self.__instantiate_node(JSON_node))
             
         for JSON_connection in self.JSON_connections:
-           self.connections.append(self.instantiate_connection(JSON_connection))
-            
+           self.connections.append(self.__instantitate_connection(JSON_connection))
+        
+        graphify(self.nodes, self.connections)
+        
         return self.connections, self.nodes
     
     def create_model(self) -> Model:
-        pass
+        model = Model()
+        
+        model.set_nodes(self.nodes)
+        model.set_connections(self.connections)
+        model.set_in_node(self.get_in_node())
+        model.set_out_node(self.get_out_node())
+        
+        return model
     
-    def instantiate_node(self, node_category: str, node_type_name: str, node_params: list) -> Node:
-        return create_node_from_module_with_JSON(f'model.Nodes.{node_category}.' + node_type_name, node_type_name, node_params)
+    def __instantiate_node(self, node_params: dict) -> Node:
+        return create_node_from_module_with_JSON(node_params)
 
-    def instantitate_connection(self, connection_params: list) -> Connection:
-        return Connection(*connection_params)
+    def __instantitate_connection(self, connection_params: dict) -> Connection:
+        return Connection.from_json(connection_params)
+    
+    def get_in_node(self):
+        for node in self.nodes:
+            if node.node_type_name == 'In':
+                return node
+            
+    def get_out_node(self):
+        for node in self.nodes:
+            if node.node_type_name == 'Out':
+                return node
     
     

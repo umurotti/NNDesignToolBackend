@@ -21,83 +21,33 @@
 	],
 	"nodes": [
 		{
-			"name": "zExgHveYtj7J",
-			"nodecategory": "In",
-			"nodetypeindex": 0,
+			"id": "zExgHveYtj7J",
+			"node_category": "",
+			"node_type_index": 0,
 			"node_type_name": "In",
-			"offset_x": 162.281845092773,
-			"offset_y": 407.623657226562,
-			"size_x": 63.9548797607422,
-			"size_y": 126.667938232422,
-			"zdata": {
-				"constructparams": {
-
-				},
-				"constructslots": [
-					{
-						"left": "true",
-						"leftcolor": "Color.RED",
-						"leftcolorindex": 0,
-						"leftinputtype": "Tensor",
-						"lefttype": "Tensor",
-						"name": "Input",
-						"right": "true",
-						"rightcolor": "Color.BLUE",
-						"rightcolorindex": 9,
-						"rightinputtype": "Tensor",
-						"righttype": "Tensor"
-					}
-				]
+			"name": "my_in",
+			"node_params": {
+				
 			}
 		},
 		{
-			"name": "BpzLkZZFxBUv",
-			"nodecategory": "Out",
-			"nodetypeindex": 0,
+			"id": "BpzLkZZFxBUv",
+			"node_category":"",
+			"node_type_index": 0,
 			"node_type_name": "Out",
-			"offset_x": 1137.1279296875,
-			"offset_y": 410.417785644531,
-			"size_x": 63.9548721313477,
-			"size_y": 126.667900085449,
-			"zdata": {
-				"constructparams": {
-
-				},
-				"constructslots": [
-					{
-						"left": "true",
-						"leftcolor": "Color.RED",
-						"leftcolorindex": 0,
-						"leftinputtype": "Tensor",
-						"lefttype": "Tensor",
-						"name": "output",
-						"right": "true",
-						"rightcolor": "Color.RED",
-						"rightcolorindex": 0,
-						"rightinputtype": "Tensor",
-						"righttype": "Tensor"
-					}
-				]
+			"name": "my_out",
+			"node_params": {
+				
 			}
 		},
 		{
-			"name": "oi2FPQUZKTVz",
-			"nodecategory": "nnnode",
-			"nodetypeindex": 6,
+			"id": "oi2FPQUZKTVz",
+			"node_category": "PyTorchNodes.NonLinearActivations",
+			"node_type_index": 6,
 			"node_type_name": "ReLU",
-			"offset_x": 776.993713378906,
-			"offset_y": 397.999359130859,
-			"size_x": 141.570007324219,
-			"size_y": 131.635284423828,
-			"zdata": {
-				"nodeactionparams": {
-
-				},
-				"nodeparams": {
-					"CustomName": "my_ReLU",
-					"inplace": false,
-					"inplace optname": "false"
-				}
+			"name": "my_ReLU",
+			"node_params": {
+				"inplace": false
 			}
 		},
 		{

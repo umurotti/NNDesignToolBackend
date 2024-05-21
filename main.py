@@ -13,6 +13,12 @@ def main():
         
         # Print the parsed JSON data
         print(parser.parse())
+        
+        model = parser.create_model()
+        print(model)
+        
+        topological_sort = model.topological_sort('khan')
+        print(topological_sort)
 
     except FileNotFoundError:
         print("Input file not found.")

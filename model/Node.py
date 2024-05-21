@@ -13,7 +13,7 @@ class Node(ForwardBuilder, ConstructorBuilder):
         self.name = name
         
         self.next_nodes = []
-        self.previous_nodes = []
+        self.prev_nodes = []
     
     @abstractmethod 
     def build_constructor(self):
