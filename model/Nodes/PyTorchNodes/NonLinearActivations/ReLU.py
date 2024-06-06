@@ -8,8 +8,8 @@ class ReLU(PyTorchNode, torch.nn.ReLU):
         PyTorchNode.__init__(self, id, node_category, node_type_index, node_type_name, name)
         torch.nn.ReLU.__init__(self, inplace)
         
-    def build_constructor(self):
-        pass
+    def build_constructor(self) -> str:
+        return f"self.{self.name} = torch.nn.ReLU({self.inplace})"
     
     def build_forward(self):
         pass

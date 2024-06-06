@@ -1,25 +1,45 @@
-from model_code.CodeBlock import CodeBlock
-class ModelCode:
-    def __init__(self, imports:CodeBlock, class_definition:CodeBlock, constructor:CodeBlock, forward:CodeBlock) -> None:
-        self.imports = imports
-        self.class_definition = class_definition
-        self.constructor = constructor
-        self.forward = forward
+from builders.ClassDefinitionBuilder import ClassDefinitionBuilder
+from builders.ImportsBuilder import ImportsBuilder
+from model.ClassDefinitions.BaseClassDefinition import BaseClassDefinition
+from model.Imports.BaseImports import BaseImports
 
-    def generate_imports(self, model):
-        pass
+from model_code.CodeBlock import CodeBlock
+
+class ModelCode:
+    def __init__(self) -> None:
+        self.imports = None
+        self.class_definition = None
+        self.constructor = None
+        self.forward = None
+
+    def add_imports(self, imp: ImportsBuilder = BaseImports()):
+        self.imports = imp.build_imports()
     
-    def generate_class_definition(self, model):
-        pass
+    def add_class_definition(self, class_definition: ClassDefinitionBuilder = BaseClassDefinition()):
+        self.class_definition = BaseClassDefinition().build_class_definition()
     
-    def generate_constructor(self, model):
-        pass
+    def add_constructor(self, model):
+        constructor_lines = []
+        
+        # Call parent constructor
+        constructor_lines.append("super().__init__()")
+        
+        # Iterate over the nodes in the topological order
+        for node in model.topological_order:
+            # Build the constructor for the node
+            constructor_lines.append(node.build_constructor())
+            
+        self.constructor = CodeBlock("def __init__(self)", constructor_lines)
+            
+    def add_forward(self, model):
+        forward_lines = ["pass"]
+        
+        self.forward = CodeBlock("def forward(self, x)", forward_lines)
     
-    def generate_forward(self, model):
-        pass
-    
-    def save_script(imports:CodeBlock, class_definition:CodeBlock, constructor:CodeBlock, forward:CodeBlock, path:str):
-        pass
+    def save_script(self, path : str = "./model.py"):
+        print(self.imports)
+        body = CodeBlock(self.class_definition, [self.constructor, self.forward])
+        print(body)
         
     
     

@@ -16,11 +16,11 @@ class Node(ForwardBuilder, ConstructorBuilder):
         self.prev_nodes = []
     
     @abstractmethod 
-    def build_constructor(self):
+    def build_constructor(self) -> str:
         pass
         
     @abstractmethod  
-    def build_forward(self):
+    def build_forward(self) -> str:
         pass
     
     @classmethod

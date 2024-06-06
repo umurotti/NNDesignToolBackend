@@ -18,7 +18,13 @@ def main():
         print(model)
         
         topological_sort = model.topological_sort('khan')
-        print(topological_sort)
+        model.set_topological_order(topological_sort)
+        print(model.topological_order)
+        
+        code = model.generate_model_code()
+        code.save_script()
+        
+        
 
     except FileNotFoundError:
         print("Input file not found.")

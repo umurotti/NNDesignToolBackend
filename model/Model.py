@@ -1,4 +1,5 @@
 from model.Node import Node
+from model_code.ModelCode import ModelCode
 
 class Model:
     def __init__(self) -> None:
@@ -10,6 +11,20 @@ class Model:
         self.topological_order = []
         self.node_hash_map = self.__create_hash_map()
 
+    def generate_model_code(self) -> ModelCode:
+        code = ModelCode()
+        
+        # 1. Add imports
+        code.add_imports()
+        # 2. Add class definition
+        code.add_class_definition()
+        # 3. Add constructor
+        code.add_constructor(self)
+        # 4. Add forward
+        code.add_forward(self)
+        
+        return code
+    
     def topological_sort(self, mode='khan') -> list:
         
         def khan(start_node: Node):
@@ -98,6 +113,9 @@ class Model:
     def set_nodes(self, nodes):
         self.nodes = nodes
         self.node_hash_map = self.__create_hash_map()
+        
+    def set_topological_order(self, topological_order):
+        self.topological_order = topological_order
         
     def set_connections(self, connections):
         self.connections = connections
