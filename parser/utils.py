@@ -34,5 +34,7 @@ def graphify(nodes: list, connections: list):
         for node in nodes:
             if connection.from_node == node.id:
                 node.next_nodes.append(connection.to_node)
+                node.out_degree += 1
             if connection.to_node == node.id:
                 node.prev_nodes.append(connection.from_node)
+                node.in_degree += 1

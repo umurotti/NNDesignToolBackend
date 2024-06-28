@@ -14,6 +14,9 @@ class Node(ForwardBuilder, ConstructorBuilder):
         
         self.next_nodes = []
         self.prev_nodes = []
+        
+        self.in_degree = 0
+        self.out_degree = 0
     
     @abstractmethod 
     def build_constructor(self) -> str:

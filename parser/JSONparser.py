@@ -36,6 +36,8 @@ class JSONparser:
         model.set_in_node(self.get_in_node())
         model.set_out_node(self.get_out_node())
         
+        #model.fill_prev_next_nodes()
+        
         return model
     
     def __instantiate_node(self, node_params: dict) -> Node:
