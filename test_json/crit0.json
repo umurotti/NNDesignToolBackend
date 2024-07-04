@@ -1,0 +1,252 @@
+{
+	"connections": [
+		{
+			"from_node": "23PngwodQhdg",
+			"from_port": 0,
+			"to_node": "6RwXdVSdFQup",
+			"to_port": 0
+		},
+		{
+			"from_node": "3uslF68T82Ts",
+			"from_port": 0,
+			"to_node": "7YRwqJ0Usiny",
+			"to_port": 0
+		},
+		{
+			"from_node": "3uslF68T82Ts",
+			"from_port": 0,
+			"to_node": "23PngwodQhdg",
+			"to_port": 0
+		},
+		{
+			"from_node": "XRit0fmI9U3w",
+			"from_port": 0,
+			"to_node": "APucYBjqHiub",
+			"to_port": 0
+		},
+		{
+			"from_node": "7YRwqJ0Usiny",
+			"from_port": 0,
+			"to_node": "LFOr9HC86wnD",
+			"to_port": 0
+		},
+		{
+			"from_node": "LFOr9HC86wnD",
+			"from_port": 0,
+			"to_node": "kNaxy0fGEqso",
+			"to_port": 0
+		},
+		{
+			"from_node": "kNaxy0fGEqso",
+			"from_port": 0,
+			"to_node": "XRit0fmI9U3w",
+			"to_port": 0
+		},
+		{
+			"from_node": "6RwXdVSdFQup",
+			"from_port": 0,
+			"to_node": "kNaxy0fGEqso",
+			"to_port": 0
+		},
+		{
+			"from_node": "6RwXdVSdFQup",
+			"from_port": 0,
+			"to_node": "XRit0fmI9U3w",
+			"to_port": 0
+		}
+	],
+	"nodes": [
+		{
+			"godotname": "APucYBjqHiub",
+			"nodeclasshierarchy": "Node.InOut",
+			"nodecustomname": "1",
+			"nodefullclassname": "Node.InOut.Out",
+			"nodeid": 2002,
+			"nodetypename": "Out",
+			"offset_x": 1612.58520507812,
+			"offset_y": 438.538818359375,
+			"size_x": 145.481857299805,
+			"size_y": 105.184059143066,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "1"
+				},
+				"pseudonodetype": {
+					"params": [],
+					"slots": []
+				}
+			}
+		},
+		{
+			"godotname": "3uslF68T82Ts",
+			"nodeclasshierarchy": "Node.InOut",
+			"nodecustomname": "0",
+			"nodefullclassname": "Node.InOut.In",
+			"nodeid": 2001,
+			"nodetypename": "In",
+			"offset_x": 301.199523925781,
+			"offset_y": 427.952087402344,
+			"size_x": 145.481857299805,
+			"size_y": 105.184059143066,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "0"
+				},
+				"pseudonodetype": {
+					"params": [],
+					"slots": []
+				}
+			}
+		},
+		{
+			"godotname": "23PngwodQhdg",
+			"nodeclasshierarchy": "Node.PyTorchNode.Convolution",
+			"nodecustomname": "a",
+			"nodefullclassname": "Node.PyTorchNode.Convolution.Conv2d",
+			"nodeid": 101,
+			"nodetypename": "Conv2d",
+			"offset_x": 547.084350585938,
+			"offset_y": 168.407012939453,
+			"size_x": 182.364608764648,
+			"size_y": 273.888366699219,
+			"zdata": {
+				"nodeparams": {
+					"bias": true,
+					"bias optname": "true",
+					"custom_name": "a",
+					"dilation": 1,
+					"groups": 1,
+					"in_channels": 2,
+					"kernel_size": 2,
+					"out_channels": 2,
+					"padding": 0,
+					"padding_mode": 0,
+					"padding_mode optname": "zeros",
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "6RwXdVSdFQup",
+			"nodeclasshierarchy": "Node.PyTorchNode.NonLinearActivation",
+			"nodecustomname": "b",
+			"nodefullclassname": "Node.PyTorchNode.NonLinearActivation.ReLU",
+			"nodeid": 106,
+			"nodetypename": "ReLU",
+			"offset_x": 820.289672851562,
+			"offset_y": 182.067291259766,
+			"size_x": 155.727127075195,
+			"size_y": 92.8898162841797,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "b",
+					"inplace": false,
+					"inplace optname": "false"
+				}
+			}
+		},
+		{
+			"godotname": "7YRwqJ0Usiny",
+			"nodeclasshierarchy": "Node.PyTorchNode.Convolution",
+			"nodecustomname": "d",
+			"nodefullclassname": "Node.PyTorchNode.Convolution.Conv2d",
+			"nodeid": 101,
+			"nodetypename": "Conv2d",
+			"offset_x": 492.443267822266,
+			"offset_y": 578.215026855469,
+			"size_x": 182.36457824707,
+			"size_y": 273.888366699219,
+			"zdata": {
+				"nodeparams": {
+					"bias": true,
+					"bias optname": "true",
+					"custom_name": "d",
+					"dilation": 1,
+					"groups": 1,
+					"in_channels": 2,
+					"kernel_size": 2,
+					"out_channels": 2,
+					"padding": 0,
+					"padding_mode": 0,
+					"padding_mode optname": "zeros",
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "XRit0fmI9U3w",
+			"nodeclasshierarchy": "Node.PyTorchNode.Convolution",
+			"nodecustomname": "c",
+			"nodefullclassname": "Node.PyTorchNode.Convolution.Conv2d",
+			"nodeid": 101,
+			"nodetypename": "Conv2d",
+			"offset_x": 1298.39904785156,
+			"offset_y": 305.009704589844,
+			"size_x": 182.36457824707,
+			"size_y": 273.888366699219,
+			"zdata": {
+				"nodeparams": {
+					"bias": true,
+					"bias optname": "true",
+					"custom_name": "c",
+					"dilation": 1,
+					"groups": 1,
+					"in_channels": 2,
+					"kernel_size": 2,
+					"out_channels": 2,
+					"padding": 0,
+					"padding_mode": 0,
+					"padding_mode optname": "zeros",
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "LFOr9HC86wnD",
+			"nodeclasshierarchy": "Node.PyTorchNode.Convolution",
+			"nodecustomname": "e",
+			"nodefullclassname": "Node.PyTorchNode.Convolution.Conv2d",
+			"nodeid": 101,
+			"nodetypename": "Conv2d",
+			"offset_x": 792.969116210938,
+			"offset_y": 509.913696289062,
+			"size_x": 182.364654541016,
+			"size_y": 273.888366699219,
+			"zdata": {
+				"nodeparams": {
+					"bias": true,
+					"bias optname": "true",
+					"custom_name": "e",
+					"dilation": 1,
+					"groups": 1,
+					"in_channels": 2,
+					"kernel_size": 2,
+					"out_channels": 2,
+					"padding": 0,
+					"padding_mode": 0,
+					"padding_mode optname": "zeros",
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "kNaxy0fGEqso",
+			"nodeclasshierarchy": "Node.PyTorchNode.NonLinearActivation",
+			"nodecustomname": "f",
+			"nodefullclassname": "Node.PyTorchNode.NonLinearActivation.ReLU",
+			"nodeid": 106,
+			"nodetypename": "ReLU",
+			"offset_x": 1025.19372558594,
+			"offset_y": 619.195861816406,
+			"size_x": 155.72705078125,
+			"size_y": 92.8898162841797,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "f",
+					"inplace": false,
+					"inplace optname": "false"
+				}
+			}
+		}
+	]
+}

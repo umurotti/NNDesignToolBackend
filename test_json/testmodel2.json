@@ -1,0 +1,113 @@
+{
+	"connections": [
+		{
+			"from_node": "igGGGm1Onuyq",
+			"from_port": 0,
+			"to_node": "alp2u20L4spj",
+			"to_port": 0
+		},
+		{
+			"from_node": "alp2u20L4spj",
+			"from_port": 0,
+			"to_node": "PlQDqe2sm9Xi",
+			"to_port": 0
+		},
+		{
+			"from_node": "PlQDqe2sm9Xi",
+			"from_port": 0,
+			"to_node": "1R8x4ym1dLFV",
+			"to_port": 0
+		}
+	],
+	"nodes": [
+		{
+			"godotname": "igGGGm1Onuyq",
+			"nodeclasshierarchy": "Node.InOut",
+			"nodecustomname": "my_in",
+			"nodefullclassname": "Node.InOut.In",
+			"nodeid": 2001,
+			"nodetypename": "In",
+			"offset_x": 10,
+			"offset_y": 324,
+			"size_x": 213,
+			"size_y": 154,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_in"
+				},
+				"pseudonodetype": {
+					"params": [],
+					"slots": []
+				}
+			}
+		},
+		{
+			"godotname": "alp2u20L4spj",
+			"nodeclasshierarchy": "Node.PyTorchNode.Convolution",
+			"nodecustomname": "my_conv",
+			"nodefullclassname": "Node.PyTorchNode.Convolution.Conv2d",
+			"nodeid": 101,
+			"nodetypename": "Conv2d",
+			"offset_x": 340,
+			"offset_y": 20,
+			"size_x": 267,
+			"size_y": 401,
+			"zdata": {
+				"nodeparams": {
+					"bias": true,
+					"bias optname": "true",
+					"custom_name": "my_conv",
+					"dilation": 1,
+					"groups": 1,
+					"in_channels": 2,
+					"kernel_size": 2,
+					"out_channels": 2,
+					"padding": 0,
+					"padding_mode": 0,
+					"padding_mode optname": "zeros",
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "PlQDqe2sm9Xi",
+			"nodeclasshierarchy": "Node.PyTorchNode.NonLinearActivation",
+			"nodecustomname": "my_relu",
+			"nodefullclassname": "Node.PyTorchNode.NonLinearActivation.ReLU",
+			"nodeid": 106,
+			"nodetypename": "ReLU",
+			"offset_x": 700,
+			"offset_y": 140,
+			"size_x": 228,
+			"size_y": 136,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_relu",
+					"inplace": false,
+					"inplace optname": "false"
+				}
+			}
+		},
+		{
+			"godotname": "1R8x4ym1dLFV",
+			"nodeclasshierarchy": "Node.InOut",
+			"nodecustomname": "my_out",
+			"nodefullclassname": "Node.InOut.Out",
+			"nodeid": 2002,
+			"nodetypename": "Out",
+			"offset_x": 812,
+			"offset_y": 324,
+			"size_x": 213,
+			"size_y": 154,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_out"
+				},
+				"pseudonodetype": {
+					"params": [],
+					"slots": []
+				}
+			}
+		}
+	]
+}

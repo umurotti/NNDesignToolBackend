@@ -1,4 +1,4 @@
-from model.Node import Node
+from model.Node.Node import Node
 from model_code.ModelCode import ModelCode
 
 class Model:
@@ -124,6 +124,8 @@ class Model:
         # Backtrack to find the nodes that form the critical path
         while end_node_id is not None:
             critical_path.insert(0, self.node_hash_map[end_node_id])
+            # Mark the node as critical
+            critical_path[0].is_critical = True
             end_node_id = predecessor[end_node_id]
         
         return critical_path

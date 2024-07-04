@@ -1,4 +1,4 @@
-from builders.ImportsBuilder import ImportsBuilder
+from builder.ImportsBuilder import ImportsBuilder
 from model_code.CodeBlock import CodeBlock
 
 class BaseImports(ImportsBuilder):

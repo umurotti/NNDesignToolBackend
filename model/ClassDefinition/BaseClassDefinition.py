@@ -1,4 +1,4 @@
-from builders.ClassDefinitionBuilder import ClassDefinitionBuilder
+from builder.ClassDefinitionBuilder import ClassDefinitionBuilder
 
 class BaseClassDefinition(ClassDefinitionBuilder):
     

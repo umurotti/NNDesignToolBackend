@@ -1,0 +1,122 @@
+{
+	"connections": [
+		{
+			"from_node": "zExgHveYtj7J",
+			"from_port": 0,
+			"to_node": "fMm4nLnKm5g4",
+			"to_port": 0
+		},
+		{
+			"from_node": "fMm4nLnKm5g4",
+			"from_port": 0,
+			"to_node": "oi2FPQUZKTVz",
+			"to_port": 0
+		},
+		{
+			"from_node": "oi2FPQUZKTVz",
+			"from_port": 0,
+			"to_node": "BpzLkZZFxBUv",
+			"to_port": 0
+		}
+	],
+	"nodes": [
+		{
+			"name": "zExgHveYtj7J",
+			"nodecategory": "In",
+			"nodetypeindex": 0,
+			"node_type_name": "In",
+			"offset_x": 162.281845092773,
+			"offset_y": 407.623657226562,
+			"size_x": 63.9548797607422,
+			"size_y": 126.667938232422,
+			"zdata": {
+				"constructparams": {
+
+				},
+				"constructslots": [
+					{
+						"left": "true",
+						"leftcolor": "Color.RED",
+						"leftcolorindex": 0,
+						"leftinputtype": "Tensor",
+						"lefttype": "Tensor",
+						"name": "Input",
+						"right": "true",
+						"rightcolor": "Color.BLUE",
+						"rightcolorindex": 9,
+						"rightinputtype": "Tensor",
+						"righttype": "Tensor"
+					}
+				]
+			}
+		},
+		{
+			"name": "BpzLkZZFxBUv",
+			"nodecategory": "Out",
+			"nodetypeindex": 0,
+			"node_type_name": "Out",
+			"offset_x": 1137.1279296875,
+			"offset_y": 410.417785644531,
+			"size_x": 63.9548721313477,
+			"size_y": 126.667900085449,
+			"zdata": {
+				"constructparams": {
+
+				},
+				"constructslots": [
+					{
+						"left": "true",
+						"leftcolor": "Color.RED",
+						"leftcolorindex": 0,
+						"leftinputtype": "Tensor",
+						"lefttype": "Tensor",
+						"name": "output",
+						"right": "true",
+						"rightcolor": "Color.RED",
+						"rightcolorindex": 0,
+						"rightinputtype": "Tensor",
+						"righttype": "Tensor"
+					}
+				]
+			}
+		},
+		{
+			"name": "oi2FPQUZKTVz",
+			"nodecategory": "nnnode",
+			"nodetypeindex": 6,
+			"node_type_name": "ReLU",
+			"offset_x": 776.993713378906,
+			"offset_y": 397.999359130859,
+			"size_x": 141.570007324219,
+			"size_y": 131.635284423828,
+			"zdata": {
+				"nodeactionparams": {
+
+				},
+				"nodeparams": {
+					"CustomName": "my_ReLU",
+					"inplace": false,
+					"inplace optname": "false"
+				}
+			}
+		},
+		{
+			"id": "fMm4nLnKm5g4",
+			"node_category": "PyTorchNodes.Convolutions",
+			"node_type_index": 1,
+			"node_type_name": "Conv2d",
+			"name": "my_conv",
+			"node_params": {
+				"bias": true,
+				"dilation": 1,
+				"groups": 1,
+				"in_channels": 2,
+				"kernel_size": 2,
+				"out_channels": 2,
+				"padding": 0,
+				"padding_mode": "zeros",
+				"stride": 1
+			}
+		}
+	]
+}

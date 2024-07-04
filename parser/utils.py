@@ -1,12 +1,12 @@
 import importlib
 import os
 
-from model.Node import Node
+from model.Node.Node import Node
 
 # Function to import a module and create an instance from a class name
 def create_node_from_module_with_JSON(json_data: dict) -> Node:
     class_name = json_data["node_type_name"]
-    module_name = import_path_from_multiple_path_components("model", "Nodes", json_data["node_category"], class_name)
+    module_name = import_path_from_multiple_path_components("model", json_data["node_full_class_name"])
     module = importlib.import_module(module_name)
     class_ = getattr(module, class_name)
     try:

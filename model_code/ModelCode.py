@@ -1,7 +1,7 @@
-from builders.ClassDefinitionBuilder import ClassDefinitionBuilder
-from builders.ImportsBuilder import ImportsBuilder
-from model.ClassDefinitions.BaseClassDefinition import BaseClassDefinition
-from model.Imports.BaseImports import BaseImports
+from builder.ClassDefinitionBuilder import ClassDefinitionBuilder
+from builder.ImportsBuilder import ImportsBuilder
+from model.ClassDefinition.BaseClassDefinition import BaseClassDefinition
+from model.Import.BaseImports import BaseImports
 
 from model_code.CodeBlock import CodeBlock
 
@@ -32,8 +32,14 @@ class ModelCode:
         self.constructor = CodeBlock("def __init__(self)", constructor_lines)
             
     def add_forward(self, model):
-        forward_lines = ["pass"]
+        forward_lines = []
         
+        # Iterate over the nodes in the topological order
+        for node in model.topological_order:
+            # Build the forward function for the node
+            #forward_lines.append(node.build_forward())
+            forward_lines.append(node.__str__())
+            
         self.forward = CodeBlock("def forward(self, x)", forward_lines)
     
     def save_script(self, path : str = "./model.py"):

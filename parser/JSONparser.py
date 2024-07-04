@@ -1,5 +1,7 @@
+from Facade import JSONFacade
+
 from model.Model import Model
-from model.Node import Node
+from model.Node.Node import Node
 from model.Connection import Connection
 
 from parser.utils import create_node_from_module_with_JSON, graphify
@@ -7,9 +9,14 @@ from parser.utils import create_node_from_module_with_JSON, graphify
 import json
 
 class JSONparser:
-    def __init__(self, JSON_path: str):
+    def __init__(self, JSON_path: str, use_facade=True):
         self.json_path = JSON_path
-        self.data = json.load(open(self.json_path))
+        
+        if use_facade:
+            facade = JSONFacade(JSON_path)
+            self.data = facade.simplify_json()
+        else:
+            self.data = json.load(open(self.json_path))
         
         self.JSON_connections = self.data['connections']
         self.JSON_nodes = self.data['nodes']
@@ -35,8 +42,6 @@ class JSONparser:
         model.set_connections(self.connections)
         model.set_in_node(self.get_in_node())
         model.set_out_node(self.get_out_node())
-        
-        #model.fill_prev_next_nodes()
         
         return model
     
