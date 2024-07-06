@@ -1,16 +1,32 @@
 from model.Node.Node import Node
+from model.Variable import Variable
 from model_code.ModelCode import ModelCode
 
 class Model:
-    def __init__(self) -> None:
-        self.nodes = []
-        self.connections = []
-        self.model_code = None
-        self.in_node = None
-        self.out_node = None
-        self.topological_order = []
+    def __init__(self, nodes: list, connections: list) -> None:
+        self.nodes = nodes
+        self.connections = connections
+        
+        # Set the input and output nodes
+        self.in_node = self.__get_in_node__()
+        self.out_node = self.__get_out_node__()
+        
+        # Create a hash map for the nodes
         self.node_hash_map = self.__create_hash_map()
-        self.critical_path = []
+        
+        # Fill the previous and next nodes for each node
+        self.__graphify__()
+        
+        # Find the topological order of the nodes
+        self.topological_order = self.__topological_sort__()
+        
+        # Find the critical path in the graph
+        self.critical_path = self.__find_critical_path__()
+        
+        # Mark the critical nodes in the graph
+        self.__mark_critical_nodes__()
+        
+        self.model_code = None
 
     def generate_model_code(self) -> ModelCode:
         code = ModelCode()
@@ -26,7 +42,7 @@ class Model:
         
         return code
     
-    def topological_sort(self, mode='khan') -> list:
+    def __topological_sort__(self, mode='khan') -> list:
         
         def khan(start_node: Node):
             """
@@ -57,11 +73,11 @@ class Model:
                 # for each node m with an edge from n to m
                 for m in n.next_nodes:
                     # decrement the in-degree of m in the copy
-                    in_degree_copy[m] -= 1
+                    in_degree_copy[m.id] -= 1
                     # if m has no other incoming edges then
-                    if in_degree_copy[m] == 0:
+                    if in_degree_copy[m.id] == 0:
                         # insert m into S
-                        S.append(self.node_hash_map[m])
+                        S.append(self.node_hash_map[m.id])
 
             if len(L) == len(self.nodes):
                 return L  # a topologically sorted order
@@ -78,7 +94,7 @@ class Model:
         else:
             return None
     
-    def find_critical_path(self) -> list:
+    def __find_critical_path__(self) -> list:
         """
         Find the critical path in a directed acyclic graph (DAG) using the topological order of the nodes.
         
@@ -114,55 +130,22 @@ class Model:
             # Iterate over the next nodes of the current node
             for next_node in node.next_nodes:
                 # Update the distance to the next node
-                if distance[next_node] < distance[node.id] + 1:
+                if distance[next_node.id] < distance[node.id] + 1:
                     distance[next_node] = distance[node.id] + 1
                     predecessor[next_node] = node.id
         
         # Find the node with the maximum distance (end node of the critical path)
-        end_node_id = max(distance, key=distance.get)
+        end_node = max(distance, key=distance.get)
         
         # Backtrack to find the nodes that form the critical path
-        while end_node_id is not None:
-            critical_path.insert(0, self.node_hash_map[end_node_id])
-            # Mark the node as critical
-            critical_path[0].is_critical = True
-            end_node_id = predecessor[end_node_id]
+        while end_node is not None:
+            critical_path.insert(0, self.node_hash_map[end_node.id])
+            end_node = predecessor[end_node.id]
         
         return critical_path
     
     def set_model_code(self, model_code):
         self.model_code = model_code
-    
-    def set_in_node(self, in_node):
-        self.in_node = in_node
-        
-    def set_out_node(self, out_node):
-        self.out_node = out_node
-        
-    def set_nodes(self, nodes):
-        self.nodes = nodes
-        self.node_hash_map = self.__create_hash_map()
-        
-    def set_topological_order(self, topological_order):
-        self.topological_order = topological_order
-        
-    def set_critical_path(self, critical_path):
-        self.critical_path = critical_path
-        
-    def set_connections(self, connections):
-        self.connections = connections
-    
-    def set_prev_nodes(self):
-        for connection in self.connections:
-            self.node_hash_map[connection.to_node].prev_nodes.append(self.node_hash_map[connection.from_node])
-    
-    def set_next_nodes(self):
-        for connection in self.connections:
-            self.node_hash_map[connection.from_node].next_nodes.append(self.node_hash_map[connection.to_node])
-    
-    def fill_prev_next_nodes(self):
-        self.set_prev_nodes()
-        self.set_next_nodes()
       
     def __create_hash_map(self) -> dict:
         hash_map = {}
@@ -171,5 +154,54 @@ class Model:
         
         return hash_map
     
+    def __graphify__(self):
+        for connection in self.connections:
+            # Find the node with the ID of the from_node in the connection
+            from_node = self.node_hash_map.get(connection.from_node)
+            if from_node is None:
+                print(f"Node with ID {connection.from_node} not found.")
+                return
+                
+            # Find the node with the ID of the to_node in the connection
+            to_node = self.node_hash_map.get(connection.to_node)
+            if to_node is None:
+                print(f"Node with ID {connection.to_node} not found.")
+                return
+            
+            # Add the connection to the nodes
+            from_node.next_nodes.append(to_node)
+            from_node.out_degree += 1
+            
+            to_node.prev_nodes.append(from_node)
+            to_node.in_degree += 1
+    
+    def __mark_critical_nodes__(self):
+        for crit_node in self.critical_path:
+            crit_node.set_critical(True)
+            
+    def __fill_variables__(self):
+        # Add the critical variable to the input and output nodes
+        for crit_node_i in self.critical_path:
+            var_to_add = Variable("x", "x", is_critical=True)
+            crit_node_i.in_vars.insert(0, var_to_add)
+            crit_node_i.out_vars.insert(0, var_to_add)
+        
+        # Iterate over the nodes in topological order
+        for node_i in self.topological_order:
+            # Iterate over the next nodes of the current node
+            for node_j in node_i.next_nodes:
+                pass
+    
     def __str__(self) -> str:
         return f"Model with {len(self.nodes)} nodes and {len(self.connections)} connections."
+    
+    def __get_in_node__(self):
+        for node in self.nodes:
+            if node.node_type_name == 'In':
+                return node
+            
+    def __get_out_node__(self):
+        for node in self.nodes:
+            if node.node_type_name == 'Out':
+                return node
+            

@@ -28,13 +28,3 @@ def import_path_from_multiple_path_components(*path_components):
         module_path = module_path[:-3]
         
     return module_path
-
-def graphify(nodes: list, connections: list):
-    for connection in connections:
-        for node in nodes:
-            if connection.from_node == node.id:
-                node.next_nodes.append(connection.to_node)
-                node.out_degree += 1
-            if connection.to_node == node.id:
-                node.prev_nodes.append(connection.from_node)
-                node.in_degree += 1

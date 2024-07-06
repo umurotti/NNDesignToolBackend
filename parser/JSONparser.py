@@ -4,7 +4,7 @@ from model.Model import Model
 from model.Node.Node import Node
 from model.Connection import Connection
 
-from parser.utils import create_node_from_module_with_JSON, graphify
+from parser.utils import create_node_from_module_with_JSON
 
 import json
 
@@ -31,17 +31,10 @@ class JSONparser:
         for JSON_connection in self.JSON_connections:
            self.connections.append(self.__instantitate_connection(JSON_connection))
         
-        graphify(self.nodes, self.connections)
-        
         return self.connections, self.nodes
     
     def create_model(self) -> Model:
-        model = Model()
-        
-        model.set_nodes(self.nodes)
-        model.set_connections(self.connections)
-        model.set_in_node(self.get_in_node())
-        model.set_out_node(self.get_out_node())
+        model = Model(self.nodes, self.connections)
         
         return model
     
@@ -50,15 +43,3 @@ class JSONparser:
 
     def __instantitate_connection(self, connection_params: dict) -> Connection:
         return Connection.from_json(connection_params)
-    
-    def get_in_node(self):
-        for node in self.nodes:
-            if node.node_type_name == 'In':
-                return node
-            
-    def get_out_node(self):
-        for node in self.nodes:
-            if node.node_type_name == 'Out':
-                return node
-    
-    
