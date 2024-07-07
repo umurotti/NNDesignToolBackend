@@ -26,6 +26,9 @@ class Model:
         # Mark the critical nodes in the graph
         self.__mark_critical_nodes__()
         
+        # Fill the input and output variables for each node
+        self.__fill_variables__()
+        
         self.model_code = None
 
     def generate_model_code(self) -> ModelCode:
@@ -131,21 +134,18 @@ class Model:
             for next_node in node.next_nodes:
                 # Update the distance to the next node
                 if distance[next_node.id] < distance[node.id] + 1:
-                    distance[next_node] = distance[node.id] + 1
-                    predecessor[next_node] = node.id
+                    distance[next_node.id] = distance[node.id] + 1
+                    predecessor[next_node.id] = node.id
         
         # Find the node with the maximum distance (end node of the critical path)
-        end_node = max(distance, key=distance.get)
+        end_node_id = max(distance, key=distance.get)
         
         # Backtrack to find the nodes that form the critical path
-        while end_node is not None:
-            critical_path.insert(0, self.node_hash_map[end_node.id])
-            end_node = predecessor[end_node.id]
+        while end_node_id is not None:
+            critical_path.insert(0, self.node_hash_map[end_node_id])
+            end_node_id = predecessor[end_node_id]
         
         return critical_path
-    
-    def set_model_code(self, model_code):
-        self.model_code = model_code
       
     def __create_hash_map(self) -> dict:
         hash_map = {}
@@ -180,18 +180,25 @@ class Model:
             crit_node.set_critical(True)
             
     def __fill_variables__(self):
-        # Add the critical variable to the input and output nodes
-        for crit_node_i in self.critical_path:
-            var_to_add = Variable("x", "x", is_critical=True)
-            crit_node_i.in_vars.insert(0, var_to_add)
-            crit_node_i.out_vars.insert(0, var_to_add)
-        
         # Iterate over the nodes in topological order
         for node_i in self.topological_order:
             # Iterate over the next nodes of the current node
             for node_j in node_i.next_nodes:
-                pass
-    
+                # if connection from node_i to node_j is critical and node_j is the next node in the critical path
+                if node_i.is_critical and node_j is self.critical_path[self.critical_path.index(node_i) + 1]:
+                    # Add the critical variable to the output variables of node_i
+                    var_to_add = Variable("x", "x", is_critical=True)
+                    node_i.out_vars.insert(0, var_to_add)
+                    # Add the critical variable to the input variables of node_j
+                    node_j.in_vars.insert(0, var_to_add)
+                # if connection from node_i to node_j is NOT critical OR node_j is NOT the next node in the critical path
+                else:
+                    # Add the non-critical variable to the output variables of node_i
+                    var_to_add = Variable(node_i.custom_name, node_j.custom_name, is_critical=False)
+                    node_i.out_vars.append(var_to_add)
+                    # Add the non-critical variable to the input variables of node_j
+                    node_j.in_vars.append(var_to_add)
+                    
     def __str__(self) -> str:
         return f"Model with {len(self.nodes)} nodes and {len(self.connections)} connections."
     
@@ -205,3 +212,5 @@ class Model:
             if node.node_type_name == 'Out':
                 return node
             
+    def set_model_code(self, model_code):
+        self.model_code = model_code

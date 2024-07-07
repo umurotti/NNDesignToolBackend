@@ -38,10 +38,6 @@ class Node(ForwardBuilder, ConstructorBuilder):
     
     def set_critical(self, is_critical):
         self.is_critical = is_critical
-        var_tmp = Variable("x", "x", is_critical=True)
-        # if the node is critical, the input and output variables MUST include x
-        self.in_vars.insert(0, var_tmp)
-        self.out_vars.insert(0, var_tmp)
         
     @classmethod
     def from_json(cls, json_data):
