@@ -7,6 +7,17 @@ class In(Node):
     def build_constructor(self) -> str:
         return "pass"
     
-    def build_forward(self) -> str:
-        return "pass"
+    def build_forward(self) -> list:
+        output = []
+        # Iterate over the output variables of the node
+        for i, out_var_i in enumerate(self.out_vars):
+            # If first output variable
+            if i == 0:
+                continue
+            # If not the first output variable
+            else:
+                for line in super().generate_variable_creation_lines():
+                    output.append(line)
+                
+        return output
     

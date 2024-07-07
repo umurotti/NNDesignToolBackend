@@ -7,6 +7,6 @@ class Out(Node):
     def build_constructor(self) -> str:
         return "pass"
     
-    def build_forward(self) -> str:
-        return "pass"
+    def build_forward(self) -> list:
+        return ["return x"]
     

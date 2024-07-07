@@ -5,6 +5,6 @@ from model_code.CodeBlock import CodeBlock
 class ForwardBuilder(ABC):
     
     @abstractmethod
-    def build_forward(self) -> str:
+    def build_forward(self) -> list:
         pass
     

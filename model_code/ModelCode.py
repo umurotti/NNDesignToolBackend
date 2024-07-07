@@ -37,14 +37,15 @@ class ModelCode:
         # Iterate over the nodes in the topological order
         for node in model.topological_order:
             # Build the forward function for the node
-            #forward_lines.append(node.build_forward())
-            forward_lines.append(node.__str__())
+            for line in node.build_forward():
+                forward_lines.append(line)
+            forward_lines.append("")
             
         self.forward = CodeBlock("def forward(self, x)", forward_lines)
     
     def save_script(self, path : str = "./model.py"):
         print(self.imports)
-        body = CodeBlock(self.class_definition, [self.constructor, self.forward])
+        body = CodeBlock(self.class_definition, [self.constructor, "", self.forward])
         print(body)
         
     

@@ -154,7 +154,7 @@ class Model:
         
         return hash_map
     
-    def __graphify__(self):
+    def __graphify__(self) -> None:
         for connection in self.connections:
             # Find the node with the ID of the from_node in the connection
             from_node = self.node_hash_map.get(connection.from_node)
@@ -175,11 +175,11 @@ class Model:
             to_node.prev_nodes.append(from_node)
             to_node.in_degree += 1
     
-    def __mark_critical_nodes__(self):
+    def __mark_critical_nodes__(self) -> None:
         for crit_node in self.critical_path:
             crit_node.set_critical(True)
             
-    def __fill_variables__(self):
+    def __fill_variables__(self) -> None:
         # Iterate over the nodes in topological order
         for node_i in self.topological_order:
             # Iterate over the next nodes of the current node
@@ -202,15 +202,12 @@ class Model:
     def __str__(self) -> str:
         return f"Model with {len(self.nodes)} nodes and {len(self.connections)} connections."
     
-    def __get_in_node__(self):
+    def __get_in_node__(self) -> Node:
         for node in self.nodes:
             if node.node_type_name == 'In':
                 return node
             
-    def __get_out_node__(self):
+    def __get_out_node__(self) -> Node:
         for node in self.nodes:
             if node.node_type_name == 'Out':
                 return node
-            
-    def set_model_code(self, model_code):
-        self.model_code = model_code

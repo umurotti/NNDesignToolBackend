@@ -10,5 +10,5 @@ class ReLU(PyTorchNode):
     def build_constructor(self) -> str:
         return f"self.{self.custom_name} = torch.nn.ReLU({self.inplace})"
     
-    def build_forward(self):
-        pass
+    def build_forward(self) -> list:
+        return super().build_forward()

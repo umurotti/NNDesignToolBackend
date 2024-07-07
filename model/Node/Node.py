@@ -30,7 +30,7 @@ class Node(ForwardBuilder, ConstructorBuilder):
         pass
         
     @abstractmethod  
-    def build_forward(self) -> str:
+    def build_forward(self) -> list:
         pass
     
     def __str__(self):
@@ -39,6 +39,13 @@ class Node(ForwardBuilder, ConstructorBuilder):
     def set_critical(self, is_critical):
         self.is_critical = is_critical
         
+    def generate_variable_creation_lines(self) -> list:
+        variable_creation_lines = []
+        for out_var in self.out_vars[1:]:
+            variable_creation_lines.append(out_var + f" = {self.out_vars[0]}")
+            
+        return variable_creation_lines
+                
     @classmethod
     def from_json(cls, json_data):
         copy_json_data = json_data.copy()

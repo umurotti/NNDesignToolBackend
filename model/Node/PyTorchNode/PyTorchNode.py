@@ -11,3 +11,26 @@ class PyTorchNode(Node):
             self.torch_call = self.TORCH_CALL
         else:
             self.torch_call = torch_call
+            
+    def build_forward(self) -> list:
+        output = []
+        # Iterate over the output variables of the node
+        for i, out_var_i in enumerate(self.out_vars):
+            # If first output variable
+            if i == 0:
+                processing_line = ""
+                processing_line += out_var_i + f" = self.{self.custom_name}("
+                
+                for in_var_i in self.in_vars:
+                    processing_line += in_var_i + ", "
+                    
+                processing_line += ")"
+                
+                output.append(processing_line)
+                
+            # If not the first output variable
+            else:
+                for line in super(PyTorchNode, self).generate_variable_creation_lines():
+                    output.append(line)
+                
+        return output

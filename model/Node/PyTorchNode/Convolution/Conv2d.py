@@ -19,11 +19,5 @@ class Conv2d(PyTorchNode):
     def build_constructor(self) -> str:
         return f"self.{self.custom_name} = torch.nn.Conv2d({self.in_channels}, {self.out_channels}, {self.kernel_size}, {self.stride}, {self.padding}, {self.dilation}, {self.groups}, {self.bias}, \'{self.padding_mode}\')"
     
-    def build_forward(self):
-        output = str("")
-        output += self.process()
-        
-    def process(self):
-        if self.is_critical:
-            return f"x = self.{self.custom_name}(x)\n"
-        return f"output = self.{self.custom_name}(input)"
+    def build_forward(self) -> list:
+        return super().build_forward()
