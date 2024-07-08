@@ -1,0 +1,105 @@
+{
+	"connections": [
+		{
+			"from_node": "IorjqNVnhdJd",
+			"from_port": 0,
+			"to_node": "jY1nwuiOd1pe",
+			"to_port": 0
+		},
+		{
+			"from_node": "WdauiGinHHe7",
+			"from_port": 0,
+			"to_node": "jY1nwuiOd1pe",
+			"to_port": 1
+		},
+		{
+			"from_node": "jY1nwuiOd1pe",
+			"from_port": 0,
+			"to_node": "oADc7hlZbYbK",
+			"to_port": 0
+		}
+	],
+	"nodes": [
+		{
+			"godotname": "WdauiGinHHe7",
+			"nodeclasshierarchy": "Node.InOut",
+			"nodecustomname": "x",
+			"nodefullclassname": "Node.InOut.In",
+			"nodeid": 2001,
+			"nodetypename": "In",
+			"offset_x": 10,
+			"offset_y": 324,
+			"size_x": 213,
+			"size_y": 154,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "x"
+				},
+				"pseudonodetype": {
+					"params": [],
+					"slots": []
+				}
+			}
+		},
+		{
+			"godotname": "oADc7hlZbYbK",
+			"nodeclasshierarchy": "Node.InOut",
+			"nodecustomname": "y",
+			"nodefullclassname": "Node.InOut.Out",
+			"nodeid": 2002,
+			"nodetypename": "Out",
+			"offset_x": 812,
+			"offset_y": 324,
+			"size_x": 213,
+			"size_y": 154,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "y"
+				},
+				"pseudonodetype": {
+					"params": [],
+					"slots": []
+				}
+			}
+		},
+		{
+			"godotname": "IorjqNVnhdJd",
+			"nodeclasshierarchy": "Node.Data",
+			"nodecustomname": "a",
+			"nodefullclassname": "Node.Data.Value",
+			"nodeid": 600,
+			"nodetypename": "Value",
+			"offset_x": 220,
+			"offset_y": 120,
+			"size_x": 236,
+			"size_y": 156,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "a",
+					"type": 2,
+					"type optname": "float",
+					"value": "5.001"
+				}
+			}
+		},
+		{
+			"godotname": "jY1nwuiOd1pe",
+			"nodeclasshierarchy": "Node.Math",
+			"nodecustomname": "b",
+			"nodefullclassname": "Node.Math.SimpleMath",
+			"nodeid": 702,
+			"nodetypename": "SimpleMath",
+			"offset_x": 494,
+			"offset_y": 193,
+			"size_x": 256,
+			"size_y": 143,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "b",
+					"operation": 0,
+					"operation optname": "multiply"
+				}
+			}
+		}
+	]
+}

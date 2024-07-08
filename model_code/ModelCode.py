@@ -43,7 +43,7 @@ class ModelCode:
             
         self.forward = CodeBlock("def forward(self, x)", forward_lines)
     
-    def save_script(self, save_path : str = "./model.py"):
+    def save_script(self, save_path : str = "./my_model.py"):
         print(self.imports)
         body = CodeBlock(self.class_definition, [self.constructor, "", self.forward])
         print(body)

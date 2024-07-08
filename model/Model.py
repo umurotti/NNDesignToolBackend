@@ -1,3 +1,4 @@
+from typing import Self
 from model.Node.Node import Node
 from model.Variable import Variable
 from model_code.ModelCode import ModelCode
@@ -47,7 +48,7 @@ class Model:
     
     def __topological_sort__(self, mode='khan') -> list:
         
-        def khan(start_node: Node):
+        def khan(model: Self):
             """
             Kahn's algorithm for topological sorting of nodes in a directed acyclic graph (DAG).
 
@@ -59,12 +60,13 @@ class Model:
             L = []
             # S: List of all nodes with no incoming edge
             S = []
-
+            for node in self.nodes:
+                if node.in_degree == 0 and node.node_type_name != 'In':
+                    S.append(node)
+            S.append(self.in_node)
+            
             # Create a copy of in_degree to avoid modifying the original
             in_degree_copy = {node.id: node.in_degree for node in self.nodes}
-
-            # Initialize S with start node
-            S.append(start_node)
 
             # while S is not empty
             while S:
@@ -87,13 +89,13 @@ class Model:
             else:
                 return None  # Graph has a cycle
         
-        def dfs():
+        def dfs(model: Self):
             pass
         
         if mode == 'khan':
-            return khan(self.in_node)
+            return khan(self)
         elif mode == 'dfs':
-            return dfs(self.in_node)
+            return dfs(self)
         else:
             return None
     
