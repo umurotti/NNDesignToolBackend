@@ -21,8 +21,10 @@ class PyTorchNode(Node):
                 processing_line = ""
                 processing_line += out_var_i + f" = self.{self.custom_name}("
                 
-                for in_var_i in self.in_vars:
-                    processing_line += in_var_i + ", "
+                for j, in_var_i in enumerate(self.in_vars):
+                    processing_line += in_var_i
+                    if j < len(self.in_vars) - 1:
+                        processing_line += ", "
                     
                 processing_line += ")"
                 

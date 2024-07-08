@@ -14,3 +14,8 @@ class Variable:
         if isinstance(other, str):
             return str(self) + other
         return NotImplemented
+    
+    def __radd__(self, other):
+        if isinstance(other, str):
+            return other + str(self)
+        return NotImplemented
