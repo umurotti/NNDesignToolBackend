@@ -16,7 +16,7 @@ class ModelCode:
         self.imports = imp.build_imports()
     
     def add_class_definition(self, class_definition: ClassDefinitionBuilder = BaseClassDefinition()):
-        self.class_definition = BaseClassDefinition().build_class_definition()
+        self.class_definition = class_definition.build_class_definition()
     
     def add_constructor(self, model):
         constructor_lines = []
@@ -43,11 +43,11 @@ class ModelCode:
             
         self.forward = CodeBlock("def forward(self, x)", forward_lines)
     
-    def save_script(self, path : str = "./model.py"):
+    def save_script(self, save_path : str = "./model.py"):
         print(self.imports)
         body = CodeBlock(self.class_definition, [self.constructor, "", self.forward])
         print(body)
         
-    
-    
-    
+        with open(save_path, 'w') as file:
+            file.write(self.imports)
+            file.write(str(body))

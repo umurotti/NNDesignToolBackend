@@ -2,9 +2,6 @@ from abc import abstractmethod
 
 from builder.ForwardBuilder import ForwardBuilder
 from builder.ConstructorBuilder import ConstructorBuilder
-from model.Variable import Variable
-
-from typing import Self
 
 class Node(ForwardBuilder, ConstructorBuilder):
     def __init__(self, id: str, node_full_class_name: str, node_type_name: str, custom_name: str) -> None:
