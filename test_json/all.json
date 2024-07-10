@@ -1,0 +1,549 @@
+{
+	"connections": [
+		{
+			"from_node": "o4cXeiabl3hy",
+			"from_port": 0,
+			"to_node": "UvCTyodqpWdf",
+			"to_port": 0
+		},
+		{
+			"from_node": "UvCTyodqpWdf",
+			"from_port": 0,
+			"to_node": "EUmFFUklOPd6",
+			"to_port": 0
+		},
+		{
+			"from_node": "EUmFFUklOPd6",
+			"from_port": 0,
+			"to_node": "EJ7TYp2CI3x0",
+			"to_port": 0
+		},
+		{
+			"from_node": "EJ7TYp2CI3x0",
+			"from_port": 0,
+			"to_node": "88oAgKNluHWg",
+			"to_port": 0
+		},
+		{
+			"from_node": "88oAgKNluHWg",
+			"from_port": 0,
+			"to_node": "niapeBqlDg02",
+			"to_port": 0
+		},
+		{
+			"from_node": "niapeBqlDg02",
+			"from_port": 0,
+			"to_node": "lMN2y4jLzFff",
+			"to_port": 0
+		},
+		{
+			"from_node": "lMN2y4jLzFff",
+			"from_port": 0,
+			"to_node": "eSSNPAdwVKGt",
+			"to_port": 0
+		},
+		{
+			"from_node": "eSSNPAdwVKGt",
+			"from_port": 0,
+			"to_node": "07nHAvBucRCq",
+			"to_port": 0
+		},
+		{
+			"from_node": "07nHAvBucRCq",
+			"from_port": 0,
+			"to_node": "TLjpjr8XwVQN",
+			"to_port": 0
+		},
+		{
+			"from_node": "TLjpjr8XwVQN",
+			"from_port": 0,
+			"to_node": "kMraQWTPePrV",
+			"to_port": 0
+		},
+		{
+			"from_node": "kMraQWTPePrV",
+			"from_port": 0,
+			"to_node": "ZPHS0V8RP4sS",
+			"to_port": 0
+		},
+		{
+			"from_node": "ZPHS0V8RP4sS",
+			"from_port": 0,
+			"to_node": "iFZJwOsAFkKh",
+			"to_port": 0
+		},
+		{
+			"from_node": "ZPHS0V8RP4sS",
+			"from_port": 0,
+			"to_node": "iFZJwOsAFkKh",
+			"to_port": 1
+		},
+		{
+			"from_node": "iFZJwOsAFkKh",
+			"from_port": 0,
+			"to_node": "dAbW2wBQzXBM",
+			"to_port": 1
+		},
+		{
+			"from_node": "iFZJwOsAFkKh",
+			"from_port": 0,
+			"to_node": "l3XKo38iY9oz",
+			"to_port": 0
+		},
+		{
+			"from_node": "l3XKo38iY9oz",
+			"from_port": 0,
+			"to_node": "eveyUjSvwM9E",
+			"to_port": 1
+		},
+		{
+			"from_node": "dAbW2wBQzXBM",
+			"from_port": 0,
+			"to_node": "eveyUjSvwM9E",
+			"to_port": 0
+		},
+		{
+			"from_node": "eveyUjSvwM9E",
+			"from_port": 0,
+			"to_node": "r1GRcKiwXgBl",
+			"to_port": 0
+		},
+		{
+			"from_node": "0OAC3aZXA2Nq",
+			"from_port": 0,
+			"to_node": "l3XKo38iY9oz",
+			"to_port": 1
+		},
+		{
+			"from_node": "ozgWfv5Cyd4n",
+			"from_port": 0,
+			"to_node": "dAbW2wBQzXBM",
+			"to_port": 0
+		}
+	],
+	"nodes": [
+		{
+			"godotname": "UvCTyodqpWdf",
+			"nodeclasshierarchy": "Node.PyTorchNode.Convolution",
+			"nodecustomname": "my_conv1d",
+			"nodefullclassname": "Node.PyTorchNode.Convolution.Conv1d",
+			"nodeid": 100,
+			"nodetypename": "Conv1d",
+			"offset_x": -4906.396484375,
+			"offset_y": 149.813674926758,
+			"size_x": 293.700439453125,
+			"size_y": 441.100341796875,
+			"zdata": {
+				"nodeparams": {
+					"bias": true,
+					"bias optname": "true",
+					"custom_name": "my_conv1d",
+					"dilation": 1,
+					"groups": 1,
+					"in_channels": 2,
+					"kernel_size": 2,
+					"out_channels": 2,
+					"padding": 0,
+					"padding_mode": 0,
+					"padding_mode optname": "zeros",
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "EUmFFUklOPd6",
+			"nodeclasshierarchy": "Node.PyTorchNode.Convolution",
+			"nodecustomname": "my_conv2d",
+			"nodefullclassname": "Node.PyTorchNode.Convolution.Conv2d",
+			"nodeid": 101,
+			"nodetypename": "Conv2d",
+			"offset_x": -4510.396484375,
+			"offset_y": 149.813674926758,
+			"size_x": 293.699920654297,
+			"size_y": 441.100341796875,
+			"zdata": {
+				"nodeparams": {
+					"bias": true,
+					"bias optname": "true",
+					"custom_name": "my_conv2d",
+					"dilation": 1,
+					"groups": 1,
+					"in_channels": 2,
+					"kernel_size": 2,
+					"out_channels": 2,
+					"padding": 0,
+					"padding_mode": 0,
+					"padding_mode optname": "zeros",
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "EJ7TYp2CI3x0",
+			"nodeclasshierarchy": "Node.PyTorchNode.Convolution",
+			"nodecustomname": "my_conv_transpose1d",
+			"nodefullclassname": "Node.PyTorchNode.Convolution.ConvTranspose1d",
+			"nodeid": 103,
+			"nodetypename": "ConvTranspose1d",
+			"offset_x": -4092.39672851562,
+			"offset_y": 149.813674926758,
+			"size_x": 269.499908447266,
+			"size_y": 441.100341796875,
+			"zdata": {
+				"nodeparams": {
+					"bias": true,
+					"bias optname": "true",
+					"custom_name": "my_conv_transpose1d",
+					"dilation": 1,
+					"groups": 1,
+					"in_channels": 2,
+					"kernel_size": 2,
+					"out_channels": 2,
+					"output_padding": 0,
+					"padding": 0,
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "88oAgKNluHWg",
+			"nodeclasshierarchy": "Node.PyTorchNode.Convolution",
+			"nodecustomname": "my_conv_transpose2d",
+			"nodefullclassname": "Node.PyTorchNode.Convolution.ConvTranspose2d",
+			"nodeid": 104,
+			"nodetypename": "ConvTranspose2d",
+			"offset_x": -3718.39672851562,
+			"offset_y": 149.813674926758,
+			"size_x": 269.500457763672,
+			"size_y": 441.100341796875,
+			"zdata": {
+				"nodeparams": {
+					"bias": true,
+					"bias optname": "true",
+					"custom_name": "my_conv_transpose2d",
+					"dilation": 1,
+					"groups": 1,
+					"in_channels": 2,
+					"kernel_size": 2,
+					"out_channels": 2,
+					"output_padding": 0,
+					"padding": 0,
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "niapeBqlDg02",
+			"nodeclasshierarchy": "Node.PyTorchNode.NonLinearActivation",
+			"nodecustomname": "my_relu",
+			"nodefullclassname": "Node.PyTorchNode.NonLinearActivation.ReLU",
+			"nodeid": 106,
+			"nodetypename": "ReLU",
+			"offset_x": -3344.39697265625,
+			"offset_y": 303.813629150391,
+			"size_x": 250.799926757812,
+			"size_y": 149.600051879883,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_relu",
+					"inplace": false,
+					"inplace optname": "false"
+				}
+			}
+		},
+		{
+			"godotname": "lMN2y4jLzFff",
+			"nodeclasshierarchy": "Node.PyTorchNode.NonLinearActivation",
+			"nodecustomname": "my_sigmoid",
+			"nodefullclassname": "Node.PyTorchNode.NonLinearActivation.Sigmoid",
+			"nodeid": 113,
+			"nodetypename": "Sigmoid",
+			"offset_x": -2970.39697265625,
+			"offset_y": 325.813629150391,
+			"size_x": 234.299926757812,
+			"size_y": 149.600051879883,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_sigmoid"
+				}
+			}
+		},
+		{
+			"godotname": "eSSNPAdwVKGt",
+			"nodeclasshierarchy": "Node.PyTorchNode.Linear",
+			"nodecustomname": "my_linear",
+			"nodefullclassname": "Node.PyTorchNode.Linear.Linear",
+			"nodeid": 107,
+			"nodetypename": "Linear",
+			"offset_x": -2640.39697265625,
+			"offset_y": 281.813629150391,
+			"size_x": 250.800186157227,
+			"size_y": 210.099975585938,
+			"zdata": {
+				"nodeparams": {
+					"bias": true,
+					"bias optname": "true",
+					"custom_name": "my_linear",
+					"in_features": 2,
+					"out_features": 2
+				}
+			}
+		},
+		{
+			"godotname": "kMraQWTPePrV",
+			"nodeclasshierarchy": "Node.PyTorchNode.Pooling",
+			"nodecustomname": "my_avg_pool1d",
+			"nodefullclassname": "Node.PyTorchNode.Pooling.AvgPool1d",
+			"nodeid": 111,
+			"nodetypename": "AvgPool1d",
+			"offset_x": -1540.3974609375,
+			"offset_y": 237.813659667969,
+			"size_x": 292.600433349609,
+			"size_y": 287.099975585938,
+			"zdata": {
+				"nodeparams": {
+					"ceil_mode": true,
+					"ceil_mode optname": "true",
+					"count_include_pad": false,
+					"count_include_pad optname": "false",
+					"custom_name": "my_avg_pool1d",
+					"kernel_size": 2,
+					"padding": 0,
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "TLjpjr8XwVQN",
+			"nodeclasshierarchy": "Node.PyTorchNode.Pooling",
+			"nodecustomname": "my_max_pool2d",
+			"nodefullclassname": "Node.PyTorchNode.Pooling.MaxPool2d",
+			"nodeid": 109,
+			"nodetypename": "MaxPool2d",
+			"offset_x": -1914.39721679688,
+			"offset_y": 215.813659667969,
+			"size_x": 256.300048828125,
+			"size_y": 325.599975585938,
+			"zdata": {
+				"nodeparams": {
+					"ceil_mode": true,
+					"ceil_mode optname": "true",
+					"custom_name": "my_max_pool2d",
+					"dilation": 1,
+					"kernel_size": 2,
+					"padding": 0,
+					"return_indices": true,
+					"return_indices optname": "true",
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "07nHAvBucRCq",
+			"nodeclasshierarchy": "Node.PyTorchNode.Pooling",
+			"nodecustomname": "my_max_pool1d",
+			"nodefullclassname": "Node.PyTorchNode.Pooling.MaxPool1d",
+			"nodeid": 108,
+			"nodetypename": "MaxPool1d",
+			"offset_x": -2266.39721679688,
+			"offset_y": 215.813659667969,
+			"size_x": 256.299926757812,
+			"size_y": 325.599975585938,
+			"zdata": {
+				"nodeparams": {
+					"ceil_mode": true,
+					"ceil_mode optname": "true",
+					"custom_name": "my_max_pool1d",
+					"dilation": 1,
+					"kernel_size": 2,
+					"padding": 0,
+					"return_indices": true,
+					"return_indices optname": "true",
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "ZPHS0V8RP4sS",
+			"nodeclasshierarchy": "Node.PyTorchNode.Pooling",
+			"nodecustomname": "my_Avg_pool2d",
+			"nodefullclassname": "Node.PyTorchNode.Pooling.AvgPool2d",
+			"nodeid": 112,
+			"nodetypename": "AvgPool2d",
+			"offset_x": -1144.3974609375,
+			"offset_y": 237.813659667969,
+			"size_x": 292.599914550781,
+			"size_y": 287.099975585938,
+			"zdata": {
+				"nodeparams": {
+					"ceil_mode": true,
+					"ceil_mode optname": "true",
+					"count_include_pad": false,
+					"count_include_pad optname": "false",
+					"custom_name": "my_Avg_pool2d",
+					"kernel_size": 2,
+					"padding": 0,
+					"stride": 1
+				}
+			}
+		},
+		{
+			"godotname": "iFZJwOsAFkKh",
+			"nodeclasshierarchy": "Node.Math",
+			"nodecustomname": "my_mult",
+			"nodefullclassname": "Node.Math.SimpleMath",
+			"nodeid": 702,
+			"nodetypename": "SimpleMath",
+			"offset_x": -638.397705078125,
+			"offset_y": 347.813629150391,
+			"size_x": 281.599914550781,
+			"size_y": 157.300186157227,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_mult",
+					"operation": 0,
+					"operation optname": "multiply"
+				}
+			}
+		},
+		{
+			"godotname": "l3XKo38iY9oz",
+			"nodeclasshierarchy": "Node.Math",
+			"nodecustomname": "my_add",
+			"nodefullclassname": "Node.Math.SimpleMath",
+			"nodeid": 702,
+			"nodetypename": "SimpleMath",
+			"offset_x": -88.39794921875,
+			"offset_y": 765.8134765625,
+			"size_x": 281.599914550781,
+			"size_y": 157.299957275391,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_add",
+					"operation": 2,
+					"operation optname": "add"
+				}
+			}
+		},
+		{
+			"godotname": "dAbW2wBQzXBM",
+			"nodeclasshierarchy": "Node.Math",
+			"nodecustomname": "my_sub",
+			"nodefullclassname": "Node.Math.SimpleMath",
+			"nodeid": 702,
+			"nodetypename": "SimpleMath",
+			"offset_x": -110.39794921875,
+			"offset_y": 39.8137130737305,
+			"size_x": 281.599914550781,
+			"size_y": 157.299957275391,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_sub",
+					"operation": 3,
+					"operation optname": "subtract"
+				}
+			}
+		},
+		{
+			"godotname": "r1GRcKiwXgBl",
+			"nodeclasshierarchy": "Node.InOut",
+			"nodecustomname": "my_out",
+			"nodefullclassname": "Node.InOut.Out",
+			"nodeid": 2002,
+			"nodetypename": "Out",
+			"offset_x": 791.60205078125,
+			"offset_y": 325.813629150391,
+			"size_x": 234.299926757812,
+			"size_y": 169.400177001953,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_out"
+				},
+				"pseudonodetype": {
+					"params": [],
+					"slots": []
+				}
+			}
+		},
+		{
+			"godotname": "eveyUjSvwM9E",
+			"nodeclasshierarchy": "Node.Math",
+			"nodecustomname": "my_divide",
+			"nodefullclassname": "Node.Math.SimpleMath",
+			"nodeid": 702,
+			"nodetypename": "SimpleMath",
+			"offset_x": 329.60205078125,
+			"offset_y": 325.813629150391,
+			"size_x": 281.599914550781,
+			"size_y": 157.300048828125,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_divide",
+					"operation": 1,
+					"operation optname": "divide"
+				}
+			}
+		},
+		{
+			"godotname": "0OAC3aZXA2Nq",
+			"nodeclasshierarchy": "Node.Data",
+			"nodecustomname": "my_int",
+			"nodefullclassname": "Node.Data.Value",
+			"nodeid": 600,
+			"nodetypename": "Value",
+			"offset_x": -638.397705078125,
+			"offset_y": 875.8134765625,
+			"size_x": 259.599914550781,
+			"size_y": 171.600082397461,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_int",
+					"type": 1,
+					"type optname": "int",
+					"value": "2"
+				}
+			}
+		},
+		{
+			"godotname": "ozgWfv5Cyd4n",
+			"nodeclasshierarchy": "Node.Data",
+			"nodecustomname": "my_float",
+			"nodefullclassname": "Node.Data.Value",
+			"nodeid": 600,
+			"nodetypename": "Value",
+			"offset_x": -616.397705078125,
+			"offset_y": -92.1862487792969,
+			"size_x": 259.600189208984,
+			"size_y": 171.599975585938,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_float",
+					"type": 2,
+					"type optname": "float",
+					"value": "0.25"
+				}
+			}
+		},
+		{
+			"godotname": "o4cXeiabl3hy",
+			"nodeclasshierarchy": "Node.InOut",
+			"nodecustomname": "my_in",
+			"nodefullclassname": "Node.InOut.In",
+			"nodeid": 2001,
+			"nodetypename": "In",
+			"offset_x": -5258.396484375,
+			"offset_y": 325.813629150391,
+			"size_x": 234.299926757812,
+			"size_y": 169.400054931641,
+			"zdata": {
+				"nodeparams": {
+					"custom_name": "my_in"
+				},
+				"pseudonodetype": {
+					"params": [],
+					"slots": []
+				}
+			}
+		}
+	]
+}

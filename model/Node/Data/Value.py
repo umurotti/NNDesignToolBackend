@@ -16,7 +16,7 @@ class Value(Node):
         self.value = value
     
     def build_constructor(self) -> str:
-        return f"pass"
+        return f"pass\t# {self.custom_name}"
     
     def build_forward(self) -> list:
         output = []
