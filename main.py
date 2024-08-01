@@ -6,7 +6,8 @@ def main():
     #input_file_path = "test_json/crit0.json"
     #input_file_path = "test_json/add2.json"
     #input_file_path = "test_json/trans.json"
-    input_file_path = "test_json/all.json"
+    #input_file_path = "test_json/all.json"
+    input_file_path = "test_json/SENPAI_test.json"
     
     try:
         # Parse the JSON data from the input file
